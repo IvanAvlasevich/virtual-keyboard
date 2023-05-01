@@ -11,7 +11,6 @@ header();
 comments();
 textAreaRender();
 
-//! -------------------- Отрисовка кнопки--------------------
 const createBtn = (value) => {
   const btn = document.createElement('button');
   btn.className = 'button';
@@ -26,8 +25,6 @@ const createBtn = (value) => {
   }
 
   btn.textContent = value;
-
-  // console.log('value',value,'clickCapsLock',clickCapsLock)
   if (value === 'CapsLock' && clickCapsLock % 2 === 1) {
     btn.classList.add('caps-active');
   } else if (value === 'CapsLock' && clickCapsLock % 2 === 0) {
@@ -36,9 +33,7 @@ const createBtn = (value) => {
 
   row.append(btn);
 };
-//!-------------------------------------------------------------------------
 
-//! ------------------------Рисуем клаву на англ-------------------------------
 const showKeyboardEn = (arr) => {
   if (document.querySelector('.container')) { document.querySelector('.container').remove(); }
   const body = document.querySelector('body');
@@ -170,13 +165,9 @@ const showKeyboardEn = (arr) => {
     }
   }
 };
-//!---------------------------------------------------------------
-
-//! ---------------------- События клавиатуры-------------------------
 
 document.addEventListener('keydown', (event)=>{
   let indexOfEl;
-  //! --------------- Нажатие на кнопку---------------
   arrEn.forEach((element, index) => {
     if (element.keyCode === event.code) {
       indexOfEl = index;
@@ -191,11 +182,9 @@ document.addEventListener('keydown', (event)=>{
       element.classList.add('active');
       const textAreaOne = document.querySelector('textarea');
 
-      //!----------------------
       textAreaOne.addEventListener('focus', ()=>{
         textAreaOne.blur();
       });
-      //!----------------------
 
       if (element.innerHTML === 'Tab') {
         textAreaOne.textContent += '     ';
@@ -250,19 +239,14 @@ document.addEventListener('keydown', (event)=>{
       }
     }
   });
-  // console.log(indexOfEl);
-  //!------------------------------------------------
   if (event.ctrlKey && event.altKey) {
     clickCtrlAlt += 1;
     showKeyboardEn(arrEn);
-    // console.log('ctrl+alt', clickCtrlAlt);
   }
   if (event.code === 'CapsLock') {
     clickCapsLock += 1;
     showKeyboardEn(arrEn);
-    // console.log('CapsLock', clickCapsLock);
   }
-  //!-----------------------------------------
 });
 
 document.addEventListener('keyup', ()=>{
@@ -271,17 +255,14 @@ document.addEventListener('keyup', ()=>{
   }
 });
 
-//! ---------------------- события мыши--------------------------
 document.addEventListener('mousedown', event=>{
   let indexOfEl;
-  // console.log(event.target.textContent);
   arrEn.forEach((element, index) => {
     if (element.value.en === event.target.textContent
       || element.value.enShift === event.target.textContent
       || element.value.ru === event.target.textContent
       || element.value.ruShift === event.target.textContent) {
       indexOfEl = index;
-      // console.log(indexOfEl);
     }
   });
 
@@ -294,11 +275,9 @@ document.addEventListener('mousedown', event=>{
       element.classList.add('active');
       const textAreaTwo = document.querySelector('textarea');
 
-      //!----------------------
       textAreaTwo.addEventListener('focus', ()=>{
         textAreaTwo.blur();
       });
-      //!----------------------
 
       if (event.target.textContent === 'Tab') {
         textAreaTwo.textContent += '     ';
@@ -341,20 +320,17 @@ document.addEventListener('mousedown', event=>{
   if (event.target.textContent === 'Win') {
     clickCtrlAlt += 1;
     showKeyboardEn(arrEn);
-    // console.log('ctrl+alt', clickCtrlAlt);
   }
   if (event.target.textContent === 'CapsLock') {
     clickCapsLock += 1;
     showKeyboardEn(arrEn);
-    // console.log('CapsLock', clickCapsLock);
   }
 });
 
-//! ---------------------- события мыши--------------------------
 document.addEventListener('mouseup', ()=>{
   if (document.querySelector('.active')) {
     document.querySelector('.active').classList.remove('active');
   }
 });
-//!-------------------------------------------------------------
+
 showKeyboardEn(arrEn);
