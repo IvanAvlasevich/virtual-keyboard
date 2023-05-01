@@ -311,7 +311,7 @@ document.addEventListener('mousedown', event=>{
         textAreaTwo.textContent += '';
         textAreaTwo.value = textAreaTwo.textContent;
       } else {
-        textAreaTwo.textContent += element.textContent;
+        textAreaTwo.textContent += event.target.textContent;
         textAreaTwo.value = textAreaTwo.textContent;
       }
     }
