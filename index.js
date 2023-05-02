@@ -1,7 +1,7 @@
-import { arrEn } from './obj.js';
-import { header } from './header.js';
-import { comments } from './comments.js';
-import { textAreaRender } from './textarea.js';
+import arrEn from './obj.js';
+import header from './header.js';
+import comments from './comments.js';
+import textAreaRender from './textarea.js';
 
 let row;
 let clickCtrlAlt = 0;
@@ -166,7 +166,7 @@ const showKeyboardEn = (arr) => {
   }
 };
 
-document.addEventListener('keydown', (event)=>{
+document.addEventListener('keydown', (event) => {
   let indexOfEl;
   arrEn.forEach((element, index) => {
     if (element.keyCode === event.code) {
@@ -177,12 +177,12 @@ document.addEventListener('keydown', (event)=>{
   if (event.code === 'Space') {
     event.preventDefault();
   }
-  document.querySelectorAll('.button').forEach((element, index)=>{
+  document.querySelectorAll('.button').forEach((element, index) => {
     if (index === indexOfEl) {
       element.classList.add('active');
       const textAreaOne = document.querySelector('textarea');
 
-      textAreaOne.addEventListener('focus', ()=>{
+      textAreaOne.addEventListener('focus', () => {
         textAreaOne.blur();
       });
 
@@ -218,7 +218,7 @@ document.addEventListener('keydown', (event)=>{
         textAreaOne.textContent += '';
         textAreaOne.value = textAreaOne.textContent;
       } else if (event.shiftKey && event.code) {
-        arrEn.forEach((elem)=>{
+        arrEn.forEach((elem) => {
           if (event.code === elem.keyCode && (elem.keyCode === 'ShiftLeft' || elem.keyCode === 'ShiftRight')) {
             textAreaOne.textContent += '';
             textAreaOne.value = textAreaOne.textContent;
@@ -249,13 +249,13 @@ document.addEventListener('keydown', (event)=>{
   }
 });
 
-document.addEventListener('keyup', ()=>{
+document.addEventListener('keyup', () => {
   if (document.querySelector('.active') !== null) {
     document.querySelector('.active').classList.remove('active');
   }
 });
 
-document.addEventListener('mousedown', event=>{
+document.addEventListener('mousedown', (event) => {
   let indexOfEl;
   arrEn.forEach((element, index) => {
     if (element.value.en === event.target.textContent
@@ -270,12 +270,12 @@ document.addEventListener('mousedown', event=>{
     event.preventDefault();
   }
 
-  document.querySelectorAll('.button').forEach((element, index)=>{
+  document.querySelectorAll('.button').forEach((element, index) => {
     if (index === indexOfEl) {
       element.classList.add('active');
       const textAreaTwo = document.querySelector('textarea');
 
-      textAreaTwo.addEventListener('focus', ()=>{
+      textAreaTwo.addEventListener('focus', () => {
         textAreaTwo.blur();
       });
 
@@ -327,7 +327,7 @@ document.addEventListener('mousedown', event=>{
   }
 });
 
-document.addEventListener('mouseup', ()=>{
+document.addEventListener('mouseup', () => {
   if (document.querySelector('.active')) {
     document.querySelector('.active').classList.remove('active');
   }

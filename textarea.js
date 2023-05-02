@@ -1,4 +1,3 @@
-//! -------------------- Отрисовка текст ареи---------------
 const textAreaRender = () => {
   const textArea = document.createElement('textarea');
   textArea.className = 'text-area';
@@ -7,4 +6,4 @@ const textAreaRender = () => {
   // textArea.autofocus = 'true';
   document.querySelector('body').append(textArea);
 };
-export { textAreaRender };
+export default textAreaRender;

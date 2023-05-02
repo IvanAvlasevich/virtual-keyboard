@@ -83,10 +83,12 @@ body{
 
 .button:active{
   box-shadow:0px 0px 5px 5px rgb(8, 164, 192);
+  scale: 0.8;
   transition: all 0.4s;
 }
 .button:hover{
   box-shadow:0px 0px 5px 5px rgb(243, 111, 4);
+  scale: 0.8;
   transition: all 0.4s;
 }
 
@@ -107,6 +109,7 @@ body{
 
 .active{
   box-shadow:0px 0px 5px 5px rgb(8, 164, 192);
+  scale: 0.8;
   transition: all 0.4s;
 }
 
