@@ -1,4 +1,3 @@
-//! -------------------- Отрисовка коментов ---------------
 const comments = () => {
   const hTwo = document.createElement('h2');
   hTwo.className = 'hTwo';
@@ -9,4 +8,4 @@ const comments = () => {
   hThree.textContent = 'Переключение языка  с помощью мыши - клик по Win';
   document.querySelector('body').append(hThree);
 };
-export { comments };
+export default comments;
